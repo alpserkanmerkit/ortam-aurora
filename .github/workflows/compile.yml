@@ -1,0 +1,37 @@
+name: Compile firmware
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/compile-sketches@v1
+        with:
+          fqbn: esp32:esp32:esp32s3
+          platforms: |
+            - name: esp32:esp32
+              source-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+              version: 2.0.17
+          sketch-paths: |
+            - firmware/ortam_aurora
+          libraries: |
+            - name: ESP Async WebServer
+              version: 3.10.3
+            - name: Async TCP
+              version: 3.4.10
+            - name: FastLED
+              version: 3.6.0
+            - name: NimBLE-Arduino
+              version: 1.4.3
+            - name: WiFiManager
+            - name: Adafruit GFX Library
+            - name: Adafruit SSD1306
+            - name: DHT sensor library
+            - name: Adafruit Unified Sensor
+            - name: BH1750
+            - name: Adafruit SGP30 Sensor

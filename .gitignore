@@ -1,0 +1,31 @@
+# Arduino / arduino-cli build output
+build/
+*.bin
+*.elf
+*.map
+*.hex
+*.o
+*.a
+.arduino/
+arduino_secrets.h
+
+# PlatformIO / editors
+.pio/
+.vscode/
+.idea/
+
+# Python (docs/draw_wiring.py)
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local working notes / auto-generated logs (never publish)
+docs/evidence/
+
+# local hook logs (never publish)
+evidence/
+**/evidence/
